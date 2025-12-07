@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Search, BookOpen, Edit2, CheckCircle, XCircle, FileText, AlertCircle } from 'lucide-react';
+import { Search, BookOpen, Edit2, CheckCircle, XCircle, FileText, AlertCircle, Moon, Sun } from 'lucide-react';
 
 // --- Default Data from OCR ---
 const DEFAULT_TEXT = `词汇练习 sherry
@@ -208,7 +208,7 @@ me any respect. A) redundant B) trivial C) versatile D) subordinate
 are supported by religious organizations. A) ensured B) attributed C) authorized D) endowed
 149. The prison guards were armed and ready to shoot if _______ in any way. A) intervened B) incurred C) provoked D) poked
 150. Many pure metals have little use because they are too soft, rust too easily, or have some other _______. A) drawbacks B) handicaps C) bruises D) blunders
-151. It was ____ that the restaurant discriminated against black customers. A) addicted B) alleged C) assaulted D) ascribed
+151. It is was ____ that the restaurant discriminated against black customers. A) addicted B) alleged C) assaulted D) ascribed
 152. The medicine ____ his pain but did not cure his illness. A) activated B) alleviated C) mediated D) deteriorated
 153. He is the only person who can ____ in this case because the other witnesses were killed
 mysteriously. A) testify B) charge C) accuse D) rectify
@@ -447,6 +447,60 @@ interface ParseResult {
   error?: string;
 }
 
+// --- Theme Definitions ---
+const THEMES = {
+  light: {
+    bg: '#f9fafb',
+    headerBg: '#ffffff',
+    cardBg: '#ffffff',
+    textMain: '#111827',
+    textSecondary: '#6b7280',
+    border: '#e5e7eb',
+    primary: '#4f46e5',
+    inputBg: '#ffffff',
+    inputBorder: '#d1d5db',
+    highlightBg: '#e0e7ff',
+    highlightText: '#4f46e5',
+    buttonBg: '#f3f4f6',
+    buttonText: '#374151',
+    correctBg: '#ecfdf5',
+    correctBorder: '#10b981',
+    correctText: '#065f46',
+    correctIcon: '#10b981',
+    optionBg: '#f9fafb',
+    optionBorder: '#f3f4f6',
+    optionText: '#4b5563',
+    optionKey: '#9ca3af',
+    missingKey: '#d97706',
+    searchIcon: '#9ca3af',
+  },
+  dark: {
+    bg: '#0f172a', // slate-900
+    headerBg: '#1e293b', // slate-800
+    cardBg: '#1e293b',
+    textMain: '#f8fafc', // slate-50
+    textSecondary: '#94a3b8', // slate-400
+    border: '#334155', // slate-700
+    primary: '#818cf8', // indigo-400
+    inputBg: '#0f172a',
+    inputBorder: '#334155',
+    highlightBg: 'rgba(79, 70, 229, 0.2)',
+    highlightText: '#818cf8',
+    buttonBg: '#334155',
+    buttonText: '#cbd5e1',
+    correctBg: 'rgba(5, 150, 105, 0.2)', // emerald-900/20
+    correctBorder: '#059669', // emerald-600
+    correctText: '#34d399', // emerald-400
+    correctIcon: '#34d399',
+    optionBg: '#0f172a',
+    optionBorder: '#334155',
+    optionText: '#cbd5e1',
+    optionKey: '#64748b',
+    missingKey: '#fbbf24',
+    searchIcon: '#64748b',
+  }
+};
+
 // --- Parsing Logic ---
 const parseContent = (rawText: string): ParseResult => {
   const questions: Question[] = [];
@@ -601,6 +655,9 @@ const App = () => {
   const [rawText, setRawText] = useState(DEFAULT_TEXT);
   const [showInput, setShowInput] = useState(false); // Default hidden to show UI first
   const [searchTerm, setSearchTerm] = useState('');
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const theme = isDarkMode ? THEMES.dark : THEMES.light;
   
   const { questions, parseError } = useMemo(() => {
     const res = parseContent(rawText);
@@ -619,33 +676,42 @@ const App = () => {
   }, [questions, searchTerm]);
 
   return (
-    <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', backgroundColor: '#f9fafb', minHeight: '100vh', paddingBottom: '40px' }}>
+    <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', backgroundColor: theme.bg, minHeight: '100vh', paddingBottom: '40px', color: theme.textMain, transition: 'background-color 0.2s, color 0.2s' }}>
       
       {/* Header */}
-      <header style={{ backgroundColor: '#ffffff', borderBottom: '1px solid #e5e7eb', position: 'sticky', top: 0, zIndex: 10 }}>
+      <header style={{ backgroundColor: theme.headerBg, borderBottom: `1px solid ${theme.border}`, position: 'sticky', top: 0, zIndex: 10, transition: 'background-color 0.2s, border-color 0.2s' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', padding: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-            <h1 style={{ fontSize: '1.25rem', fontWeight: '700', color: '#111827', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <BookOpen size={24} color="#4f46e5" />
+            <h1 style={{ fontSize: '1.25rem', fontWeight: '700', color: theme.textMain, display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <BookOpen size={24} color={theme.primary} />
               Vocabulary Matcher
             </h1>
-            <button 
-              onClick={() => setShowInput(!showInput)}
-              style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.875rem', padding: '6px 12px', borderRadius: '6px', backgroundColor: showInput ? '#e0e7ff' : '#f3f4f6', color: showInput ? '#4f46e5' : '#374151', border: 'none', cursor: 'pointer', fontWeight: 500 }}
-            >
-              <Edit2 size={16} />
-              {showInput ? 'Hide Source' : 'Edit Source'}
-            </button>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <button 
+                onClick={() => setIsDarkMode(!isDarkMode)}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '6px', borderRadius: '6px', backgroundColor: theme.buttonBg, color: theme.buttonText, border: 'none', cursor: 'pointer' }}
+                title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+              <button 
+                onClick={() => setShowInput(!showInput)}
+                style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.875rem', padding: '6px 12px', borderRadius: '6px', backgroundColor: showInput ? theme.highlightBg : theme.buttonBg, color: showInput ? theme.highlightText : theme.buttonText, border: 'none', cursor: 'pointer', fontWeight: 500 }}
+              >
+                <Edit2 size={16} />
+                {showInput ? 'Hide Source' : 'Edit Source'}
+              </button>
+            </div>
           </div>
 
           <div style={{ position: 'relative' }}>
-            <Search size={20} color="#9ca3af" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
+            <Search size={20} color={theme.searchIcon} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
             <input 
               type="text" 
               placeholder="Search by word, question number, or option..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              style={{ width: '100%', padding: '10px 12px 10px 40px', borderRadius: '8px', border: '1px solid #d1d5db', fontSize: '1rem', outline: 'none', boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)' }}
+              style={{ width: '100%', padding: '10px 12px 10px 40px', borderRadius: '8px', border: `1px solid ${theme.inputBorder}`, backgroundColor: theme.inputBg, color: theme.textMain, fontSize: '1rem', outline: 'none', boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)' }}
             />
           </div>
         </div>
@@ -655,14 +721,14 @@ const App = () => {
         
         {/* Source Input Area (Collapsible) */}
         {showInput && (
-          <div style={{ marginBottom: '24px', backgroundColor: 'white', padding: '16px', borderRadius: '8px', border: '1px solid #e5e7eb', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-            <h3 style={{ fontSize: '0.875rem', fontWeight: '600', color: '#374151', marginBottom: '8px' }}>Source Text (Paste PDF content here)</h3>
+          <div style={{ marginBottom: '24px', backgroundColor: theme.cardBg, padding: '16px', borderRadius: '8px', border: `1px solid ${theme.border}`, boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+            <h3 style={{ fontSize: '0.875rem', fontWeight: '600', color: theme.textSecondary, marginBottom: '8px' }}>Source Text (Paste PDF content here)</h3>
             <textarea
               value={rawText}
               onChange={(e) => setRawText(e.target.value)}
-              style={{ width: '100%', height: '300px', padding: '12px', borderRadius: '6px', border: '1px solid #d1d5db', fontFamily: 'monospace', fontSize: '0.875rem', resize: 'vertical' }}
+              style={{ width: '100%', height: '300px', padding: '12px', borderRadius: '6px', border: `1px solid ${theme.inputBorder}`, backgroundColor: theme.inputBg, color: theme.textMain, fontFamily: 'monospace', fontSize: '0.875rem', resize: 'vertical' }}
             />
-            <div style={{ marginTop: '8px', fontSize: '0.75rem', color: '#6b7280' }}>
+            <div style={{ marginTop: '8px', fontSize: '0.75rem', color: theme.textSecondary }}>
               Format: Number. Question text... A) opt1 B) opt2 ... <br/>
               Answers at end: 1-5 A B C D E
             </div>
@@ -670,7 +736,7 @@ const App = () => {
         )}
 
         {/* Stats */}
-        <div style={{ marginBottom: '16px', fontSize: '0.875rem', color: '#6b7280', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ marginBottom: '16px', fontSize: '0.875rem', color: theme.textSecondary, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span>Found {questions.length} questions. Showing {filteredQuestions.length}.</span>
             {parseError && <span style={{ color: '#dc2626' }}>{parseError}</span>}
         </div>
@@ -678,19 +744,19 @@ const App = () => {
         {/* Questions List */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {filteredQuestions.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '40px', color: '#9ca3af' }}>
+            <div style={{ textAlign: 'center', padding: '40px', color: theme.textSecondary }}>
               <p>No questions found matching your search.</p>
             </div>
           ) : (
             filteredQuestions.map((q) => (
-              <div key={q.id} style={{ backgroundColor: 'white', borderRadius: '12px', border: '1px solid #e5e7eb', padding: '20px', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}>
+              <div key={q.id} style={{ backgroundColor: theme.cardBg, borderRadius: '12px', border: `1px solid ${theme.border}`, padding: '20px', boxShadow: '0 1px 2px rgba(0,0,0,0.05)', transition: 'background-color 0.2s, border-color 0.2s' }}>
                 {/* Question Header */}
                 <div style={{ display: 'flex', gap: '12px', marginBottom: '12px' }}>
-                  <span style={{ fontWeight: '700', color: '#4f46e5', minWidth: '30px' }}>{q.id}.</span>
-                  <div style={{ fontSize: '1.05rem', color: '#111827', lineHeight: '1.5' }}>
+                  <span style={{ fontWeight: '700', color: theme.primary, minWidth: '30px' }}>{q.id}.</span>
+                  <div style={{ fontSize: '1.05rem', color: theme.textMain, lineHeight: '1.5' }}>
                     {/* Highlight blanks matches in text if simple underscores */}
                     {q.text.split(/(_+)/).map((part, i) => 
-                      part.match(/_+/) ? <span key={i} style={{ color: '#d1d5db', fontWeight: 'bold' }}>_______</span> : part
+                      part.match(/_+/) ? <span key={i} style={{ color: theme.textSecondary, fontWeight: 'bold' }}>_______</span> : part
                     )}
                   </div>
                 </div>
@@ -707,15 +773,15 @@ const App = () => {
                           alignItems: 'center', 
                           padding: '10px 12px', 
                           borderRadius: '8px', 
-                          backgroundColor: isCorrect ? '#ecfdf5' : '#f9fafb',
-                          border: isCorrect ? '1px solid #10b981' : '1px solid #f3f4f6',
-                          color: isCorrect ? '#065f46' : '#4b5563',
+                          backgroundColor: isCorrect ? theme.correctBg : theme.optionBg,
+                          border: isCorrect ? `1px solid ${theme.correctBorder}` : `1px solid ${theme.optionBorder}`,
+                          color: isCorrect ? theme.correctText : theme.optionText,
                           transition: 'all 0.2s'
                         }}
                       >
-                        <span style={{ fontWeight: '600', marginRight: '8px', color: isCorrect ? '#059669' : '#9ca3af', minWidth: '20px' }}>{opt.key})</span>
+                        <span style={{ fontWeight: '600', marginRight: '8px', color: isCorrect ? theme.correctText : theme.optionKey, minWidth: '20px' }}>{opt.key})</span>
                         <span style={{ fontWeight: isCorrect ? '600' : '400' }}>{opt.text}</span>
-                        {isCorrect && <CheckCircle size={16} style={{ marginLeft: 'auto', color: '#10b981' }} />}
+                        {isCorrect && <CheckCircle size={16} style={{ marginLeft: 'auto', color: theme.correctIcon }} />}
                       </div>
                     );
                   })}
@@ -723,14 +789,14 @@ const App = () => {
 
                 {/* Fallback if answer key exists but option parsing failed or no matching option key */}
                 {q.correctAnswer && !q.options.find(o => o.key === q.correctAnswer) && (
-                   <div style={{ marginTop: '12px', fontSize: '0.875rem', color: '#059669', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                   <div style={{ marginTop: '12px', fontSize: '0.875rem', color: theme.correctText, fontWeight: '600', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <CheckCircle size={14} />
                       Correct Answer: {q.correctAnswer} (Option text not found)
                    </div>
                 )}
                  {/* Fallback if no answer key found */}
                  {!q.correctAnswer && (
-                   <div style={{ marginTop: '12px', fontSize: '0.875rem', color: '#d97706', fontWeight: '500', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                   <div style={{ marginTop: '12px', fontSize: '0.875rem', color: theme.missingKey, fontWeight: '500', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <AlertCircle size={14} />
                       Answer key not found
                    </div>
