@@ -1,9 +1,10 @@
 # syntax=docker/dockerfile:1
 
-FROM node:20-alpine AS build
+# Build stage: Alibaba Cloud Linux 3 Node image
+FROM alibaba-cloud-linux-3-registry.cn-hangzhou.cr.aliyuncs.com/alinux3/node:20.16 AS build
 WORKDIR /app
 
-# Install deps first to leverage Docker layer cache
+# Install dependencies first to leverage cache
 COPY package*.json ./
 RUN npm install
 
@@ -11,8 +12,8 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Serve with nginx
-FROM nginx:1.27-alpine
+# Runtime stage: Alibaba Cloud Linux 3 optimized Nginx
+FROM alibaba-cloud-linux-3-registry.cn-hangzhou.cr.aliyuncs.com/alinux3/nginx_optimized:20240221-1.20.1-2.3.0
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 COPY --from=build /app/dist ./
