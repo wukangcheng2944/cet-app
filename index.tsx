@@ -659,6 +659,13 @@ const App = () => {
 
   const theme = isDarkMode ? THEMES.dark : THEMES.light;
   
+  // Sync body background with theme
+  useEffect(() => {
+    document.body.style.backgroundColor = theme.bg;
+    document.body.style.color = theme.textMain;
+    document.body.style.transition = 'background-color 0.2s, color 0.2s';
+  }, [theme]);
+  
   const { questions, parseError } = useMemo(() => {
     const res = parseContent(rawText);
     return { questions: res.questions, parseError: res.error };
