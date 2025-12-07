@@ -6,8 +6,7 @@ WORKDIR /app
 
 # Install dependencies first to leverage cache
 COPY package*.json ./
-RUN chmod -R u+w /app \
-    && npm install --ignore-engines --unsafe-perm
+RUN npm install --ignore-engines --unsafe-perm --no-package-lock
 
 # Build the app
 COPY . .
