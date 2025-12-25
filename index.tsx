@@ -694,19 +694,12 @@ const App = () => {
               Vocabulary Matcher
             </h1>
             <div style={{ display: 'flex', gap: '8px' }}>
-              <button 
+              <button
                 onClick={() => setIsDarkMode(!isDarkMode)}
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '6px', borderRadius: '6px', backgroundColor: theme.buttonBg, color: theme.buttonText, border: 'none', cursor: 'pointer' }}
                 title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
               >
                 {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-              </button>
-              <button 
-                onClick={() => setShowInput(!showInput)}
-                style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.875rem', padding: '6px 12px', borderRadius: '6px', backgroundColor: showInput ? theme.highlightBg : theme.buttonBg, color: showInput ? theme.highlightText : theme.buttonText, border: 'none', cursor: 'pointer', fontWeight: 500 }}
-              >
-                <Edit2 size={16} />
-                {showInput ? 'Hide Source' : 'Edit Source'}
               </button>
             </div>
           </div>
