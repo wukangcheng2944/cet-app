@@ -683,7 +683,7 @@ const App = () => {
   }, [questions, searchTerm]);
 
   return (
-    <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', backgroundColor: theme.bg, minHeight: '100vh', paddingBottom: '40px', color: theme.textMain, transition: 'background-color 0.2s, color 0.2s' }}>
+    <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', backgroundColor: theme.bg, minHeight: '100vh', paddingBottom: '40px', color: theme.textMain, transition: 'background-color 0.2s, color 0.2s', overflowX: 'hidden' }}>
       
       {/* Header */}
       <header style={{ backgroundColor: theme.headerBg, borderBottom: `1px solid ${theme.border}`, position: 'sticky', top: 0, zIndex: 10, transition: 'background-color 0.2s, border-color 0.2s' }}>
@@ -713,12 +713,12 @@ const App = () => {
 
           <div style={{ position: 'relative' }}>
             <Search size={20} color={theme.searchIcon} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
-            <input 
-              type="text" 
+            <input
+              type="text"
               placeholder="Search by word, question number, or option..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              style={{ width: '100%', padding: '10px 12px 10px 40px', borderRadius: '8px', border: `1px solid ${theme.inputBorder}`, backgroundColor: theme.inputBg, color: theme.textMain, fontSize: '1rem', outline: 'none', boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)' }}
+              style={{ width: '100%', padding: '10px 12px 10px 40px', borderRadius: '8px', border: `1px solid ${theme.inputBorder}`, backgroundColor: theme.inputBg, color: theme.textMain, fontSize: '1rem', outline: 'none', boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)', boxSizing: 'border-box' }}
             />
           </div>
         </div>
@@ -733,7 +733,7 @@ const App = () => {
             <textarea
               value={rawText}
               onChange={(e) => setRawText(e.target.value)}
-              style={{ width: '100%', height: '300px', padding: '12px', borderRadius: '6px', border: `1px solid ${theme.inputBorder}`, backgroundColor: theme.inputBg, color: theme.textMain, fontFamily: 'monospace', fontSize: '0.875rem', resize: 'vertical' }}
+              style={{ width: '100%', height: '300px', padding: '12px', borderRadius: '6px', border: `1px solid ${theme.inputBorder}`, backgroundColor: theme.inputBg, color: theme.textMain, fontFamily: 'monospace', fontSize: '0.875rem', resize: 'vertical', boxSizing: 'border-box' }}
             />
             <div style={{ marginTop: '8px', fontSize: '0.75rem', color: theme.textSecondary }}>
               Format: Number. Question text... A) opt1 B) opt2 ... <br/>
