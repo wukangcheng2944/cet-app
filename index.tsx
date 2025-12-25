@@ -475,25 +475,25 @@ const THEMES = {
     searchIcon: '#9ca3af',
   },
   dark: {
-    bg: '#0f172a', // slate-900
-    headerBg: '#1e293b', // slate-800
-    cardBg: '#1e293b',
+    bg: '#000000', // 纯黑色
+    headerBg: '#000000', // 统一黑色
+    cardBg: '#111111', // 卡片稍微浅一点以区分
     textMain: '#f8fafc', // slate-50
     textSecondary: '#94a3b8', // slate-400
-    border: '#334155', // slate-700
+    border: '#222222', // 深灰边框
     primary: '#818cf8', // indigo-400
-    inputBg: '#0f172a',
-    inputBorder: '#334155',
+    inputBg: '#111111',
+    inputBorder: '#333333',
     highlightBg: 'rgba(79, 70, 229, 0.2)',
     highlightText: '#818cf8',
-    buttonBg: '#334155',
+    buttonBg: '#222222',
     buttonText: '#cbd5e1',
     correctBg: 'rgba(5, 150, 105, 0.2)', // emerald-900/20
     correctBorder: '#059669', // emerald-600
     correctText: '#34d399', // emerald-400
     correctIcon: '#34d399',
-    optionBg: '#0f172a',
-    optionBorder: '#334155',
+    optionBg: '#111111',
+    optionBorder: '#222222',
     optionText: '#cbd5e1',
     optionKey: '#64748b',
     missingKey: '#fbbf24',
