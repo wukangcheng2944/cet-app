@@ -391,11 +391,11 @@ his bag for his camera. A) impatience 不耐烦 B) impulse 冲动 C) incentive �
 21-25 C C D A C
 26-30 B C D B A
 31-35 B A D A D
-36-40 C A B B B
+36-40 D A B B D
 41-45 C C B A D
 46-50 D A C D A
 51-55 B C C C B
-56-60 B C B A B
+56-60 C D B A B
 61-65A D B C A
 66-70 C C B B D
 71-75A C B A D
@@ -408,29 +408,36 @@ his bag for his camera. A) impatience 不耐烦 B) impulse 冲动 C) incentive �
 106-110 C D C D B
 111-115 C C B D A
 116-120 D A D D C
-121-125A D B A B
-126-130A C A D C
-131-135D B C A C
-136-140C D B A D
-141-145A D B B C
+121-125 B D B A B
+126-130 A C A B C
+131-135 D B C A C
+136-140 A D B A D
+141-145 A D B B C
 146-150 B D D C A
 151-155 B B A C D
-156-160CABAD
+156-160 C A B A D
 161-165 A B D C D
 166-170 A A C D A
 171-175 A D D C D
-176-180C B C D B
-181- 185 B C C C D
+176-180 C B C D B
+181-185 B C C C D
 186-190 D C B A C
 191-195 B C C B A
-196-200C B A C B
+196-200 C B A C B
 201-205 B C B A C
 206-210 D B A B A
 211-215 A C B A C
 216-220 D D C D B
-221-225 D A C D A 226-230 A D A C C 231-235 C B A B C 236-240 D B B A C
-241--245 C B D C D 246--250 D B C B A 251--255 D A B D A 256--260 B C A B D
-261--265 A D B A C 266--270 D C C A B
+221-225 D A C D A
+226-230 A D A B C
+231-235 C B A A C
+236-240 D B B A C
+241-245 C B D C A
+246-250 D B C B D
+251-255 D A B D A
+256-260 B C A B D
+261-265 A D B A C
+266-270 D C C A B
 `;
 
 // --- Type Definitions ---
