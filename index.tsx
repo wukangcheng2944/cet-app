@@ -5,117 +5,118 @@ import { Search, BookOpen, Edit2, CheckCircle, XCircle, FileText, AlertCircle, M
 // --- Default Data from OCR ---
 const DEFAULT_TEXT = `词汇练习 sherry
 1
-1. The doctors don't _______ that he will live much longer. A) articulate 清晰表达 B) anticipate 预期，预料 C) manifest 显示，表明 D) monitor 监测，监控
-2.I suggest we put the scheme into effect, for it is quite_______. A) eligible 有资格的 B) sustainable 可持续的 C) probable 可能的 D) feasible 可行的
-3.The old gentleman was a very ________ looking person, with grey hair and gold spectacles. A) respectful 恭敬的 B) respected 受尊敬的 C) respective 各自的 D) respectable 体面的，值得尊敬的
-4.This book is expected to _______ the best - seller lists. A) promote 促进，推广 B) prevail 盛行，获胜 C) dominate 主导，占据 D) exemplify 例证，作为典范
-5.That part of the city has long been ________ for its street violence. A) notorious 臭名昭著的 B) responsible 负责的 C) historical 历史的 D) illegal 非法的
-6.Under the guidance of their teacher, the pupils are building a model boat_______ by steam. A) towed 拖拽 B) pressed 按压 C) tossed 抛掷 D) propelled 推进，驱动
+1. The doctors don't _______ that he will live much longer. 医生们不______他还能活多久。 A) articulate 清晰表达 B) anticipate 预期，预料 C) manifest 显示，表明 D) monitor 监测，监控
+2.I suggest we put the scheme into effect, for it is quite_______. 我建议我们实施这个计划，因为它相当______。 A) eligible 有资格的 B) sustainable 可持续的 C) probable 可能的 D) feasible 可行的
+3.The old gentleman was a very ________ looking person, with grey hair and gold spectacles. 这位老绅士看起来非常______，有着灰白的头发和金边眼镜。 A) respectful 恭敬的 B) respected 受尊敬的 C) respective 各自的 D) respectable 体面的，值得尊敬的
+4.This book is expected to _______ the best - seller lists. 这本书预计将______畅销书排行榜。 A) promote 促进，推广 B) prevail 盛行，获胜 C) dominate 主导，占据 D) exemplify 例证，作为典范
+5.That part of the city has long been ________ for its street violence. 这座城市的那个地区长期以来因街头暴力而______。 A) notorious 臭名昭著的 B) responsible 负责的 C) historical 历史的 D) illegal 非法的
+6.Under the guidance of their teacher, the pupils are building a model boat_______ by steam. 在老师的指导下，学生们正在建造一艘由蒸汽______的模型船。 A) towed 拖拽 B) pressed 按压 C) tossed 抛掷 D) propelled 推进，驱动
 7.Having finished their morning work, the clerks stood up behind their desks, ________
-themselves. A) expanding 扩展 B) stretching 伸展身体 C) prolonging 延长 D) extending 延伸
+themselves. 完成上午的工作后，职员们站在办公桌后______自己。 A) expanding 扩展 B) stretching 伸展身体 C) prolonging 延长 D) extending 延伸
 8.England's team, who are now superbly fit, will be doing their best next week to ________
-themselves for last year's defeat. A) revive 复兴 B) retort 反驳 C) revenge 报仇，复仇 D) remedy 补救
-9.If you want to get into that tunnel, you first have to _______ away all the rocks. A) haul 拖，拉 B) transfer 转移 C) repel 击退 D) dispose 处理
-10.It took us only a few hours to _______the paper off all four walls. A) shear 剪切 B) scrape 刮掉 C) stroke 抚摸 D) chip 削，凿
-11.The famous scientist _______his success to hard work. A) imparted 传授 B) granted 授予 C) ascribed 归因于 D) acknowledged 承认
-12.It is difficult to _______of a plan to end poverty. A) speculate 推测 B) conceive 构想，设想 C) ponder 沉思 D) reckon 认为
-13. Now the cheers and applause _______in a single sustained roar. A) mingled 混合 B) concentrated 集中 C) assembled 集合 D) permeated 渗透
-14..Improved consumer confidence is ________ to an economic recovery. A) crucial 至关重要的 B) subordinate 次要的 C) cumulative 累积的 D) satisfactory 令人满意的
+themselves for last year's defeat. 英格兰队现在状态极佳，下周将全力以赴为去年的失败______。 A) revive 复兴 B) retort 反驳 C) revenge 报仇，复仇 D) remedy 补救
+9.If you want to get into that tunnel, you first have to _______ away all the rocks. 如果你想进入那条隧道，首先必须把所有的岩石______走。 A) haul 拖，拉 B) transfer 转移 C) repel 击退 D) dispose 处理
+10.It took us only a few hours to _______the paper off all four walls. 我们只用了几个小时就把四面墙上的纸______下来了。 A) shear 剪切 B) scrape 刮掉 C) stroke 抚摸 D) chip 削，凿
+11.The famous scientist _______his success to hard work. 这位著名科学家把他的成功______于努力工作。 A) imparted 传授 B) granted 授予 C) ascribed 归因于 D) acknowledged 承认
+12.It is difficult to _______of a plan to end poverty. 很难______出一个消除贫困的计划。 A) speculate 推测 B) conceive 构想，设想 C) ponder 沉思 D) reckon 认为
+13. Now the cheers and applause _______in a single sustained roar. 现在欢呼声和掌声______成一片持续的轰鸣。 A) mingled 混合 B) concentrated 集中 C) assembled 集合 D) permeated 渗透
+14..Improved consumer confidence is ________ to an economic recovery. 消费者信心的提高对经济复苏______。 A) crucial 至关重要的 B) subordinate 次要的 C) cumulative 累积的 D) satisfactory 令人满意的
 15.Although the body is made up of many different tissues, these tissues are arranged in
-an _______ and orderly fashion. A) incredible 难以置信的 B) intricate 错综复杂的 C) internal 内部的 D) initial 最初的
-16.If you work under a car when repairing it, you often get very_______. A) waxy 蜡质的 B) slippery 滑的 C) sticky 黏的 D) greasy 油腻的
-17.The damage to his car was_______; therefore, he could repair it himself. A) considerable 相当大的 B) appreciable 可察觉的 C) negligible 微不足道的 D) invisible 看不见的
-18. My sister is quite _______ and plans to get an M. A. degree within one year. A) aggressive 有进取心的 B) enthusiastic 热情的 C) considerate 体贴的 D) ambitious 有抱负的
-19.The manager tried to wave aside these issues as _______ details that would be settled later. A) versatile 多才多艺的 B) trivial 琐碎的，不重要的 C) preliminary 初步的 D) alternate 交替的
-20.His_______was telling him that something was wrong. A) intuition 直觉 B) hypothesis 假设 C) inspiration 灵感 D) sentiment 情感
+an _______ and orderly fashion. 虽然身体由许多不同的组织组成，但这些组织以______且有序的方式排列。 A) incredible 难以置信的 B) intricate 错综复杂的 C) internal 内部的 D) initial 最初的
+16.If you work under a car when repairing it, you often get very_______. 修车时如果在车底下工作，你经常会变得很______。 A) waxy 蜡质的 B) slippery 滑的 C) sticky 黏的 D) greasy 油腻的
+17.The damage to his car was_______; therefore, he could repair it himself. 他汽车的损坏是______的，因此他可以自己修理。 A) considerable 相当大的 B) appreciable 可察觉的 C) negligible 微不足道的 D) invisible 看不见的
+18. My sister is quite _______ and plans to get an M. A. degree within one year. 我姐姐很有______，计划在一年内获得硕士学位。 A) aggressive 有进取心的 B) enthusiastic 热情的 C) considerate 体贴的 D) ambitious 有抱负的
+19.The manager tried to wave aside these issues as _______ details that would be settled later. 经理试图把这些问题当作______的细节搁置，以后再解决。 A) versatile 多才多艺的 B) trivial 琐碎的，不重要的 C) preliminary 初步的 D) alternate 交替的
+20.His_______was telling him that something was wrong. 他的______告诉他有些不对劲。 A) intuition 直觉 B) hypothesis 假设 C) inspiration 灵感 D) sentiment 情感
 21.This book is about how these basic beliefs and values affect important _______ of American life.
-A) fashions 时尚 B) frontiers 边界 C) facets 方面 D) formats 格式
+这本书讲述了这些基本信念和价值观如何影响美国生活的重要______。 A) fashions 时尚 B) frontiers 边界 C) facets 方面 D) formats 格式
 22.Parents often faced the _______ between doing what they felt was good for the development of the
-child and what they could stand by way of undisciplined noise and destructiveness. A) paradox 悖论 B) junction 交汇处 C) dilemma 困境，两难 D) premise 前提
+child and what they could stand by way of undisciplined noise and destructiveness. 父母经常面临______：是做他们认为对孩子发展有益的事，还是忍受孩子不守规矩的吵闹和破坏行为。 A) paradox 悖论 B) junction 交汇处 C) dilemma 困境，两难 D) premise 前提
 23.Clark felt that his _______ in one of the most dramatic medical experiments of all time was worth
-the suffering he underwent. A) apprehension 忧虑 B) appreciation 欣赏 C) presentation 展示 D) participation 参与
+the suffering he underwent. 克拉克觉得他______有史以来最具戏剧性的医学实验之一是值得他所经历的痛苦的。 A) apprehension 忧虑 B) appreciation 欣赏 C) presentation 展示 D) participation 参与
 24.As one of the youngest professors in the university, Miss King is certainly on the ________ of a
-brilliant career. A) threshold 门槛，起点 B) edge 边缘 C) porch 门廊 D) course 课程，进程
-25.The_______lawyer made a great impression on the jury. A) protecting 保护的 B) guarding 守卫的 C) defending 辩护的 D) shielding 遮蔽的
-26.Very few people understood his lecture, the subject of which was very_______. A) dim 昏暗的 B) obscure 晦涩的，模糊的 C) conspicuous 显眼的 D) intelligible 易理解的
+brilliant career. 作为大学里最年轻的教授之一，金小姐无疑正处于辉煌事业的______。 A) threshold 门槛，起点 B) edge 边缘 C) porch 门廊 D) course 课程，进程
+25.The_______lawyer made a great impression on the jury. ______律师给陪审团留下了深刻印象。 A) protecting 保护的 B) guarding 守卫的 C) defending 辩护的 D) shielding 遮蔽的
+26.Very few people understood his lecture, the subject of which was very_______. 很少有人听懂他的讲座，因为主题非常______。 A) dim 昏暗的 B) obscure 晦涩的，模糊的 C) conspicuous 显眼的 D) intelligible 易理解的
 27.This movie is not ________ for children to see: it contains too much violence
-and too many love scenes. A) profound 深刻的 B) valid 有效的 C) decent 得体的，适当的 D) upright 正直的
-28.The wood was so rotten that, when we pulled, it _______ into fragments. A) broke off 折断 B) broke away 脱离 C) broke through 突破 D) broke up 破碎
-29.The detective and his assistant have begun to _______ the mysterious murder. A) come through 经历 B) look into 调查 C) make over 改造 D) see to 照管
-30.Sadly, the Giant Panda is one of the many species now in danger of_______. A) extinction 灭绝 B) migration 迁移 C) destruction 破坏 D) extraction 提取
-31.For many patients, institutional care is the most ______ and beneficial form of care. A) pertinent 相关的 B) appropriate 适当的 C) acute 急性的 D) persistent 持续的
+and too many love scenes. 这部电影不______儿童观看：它包含太多暴力和爱情场面。 A) profound 深刻的 B) valid 有效的 C) decent 得体的，适当的 D) upright 正直的
+28.The wood was so rotten that, when we pulled, it _______ into fragments. 木头太腐烂了，当我们拉的时候，它______成碎片。 A) broke off 折断 B) broke away 脱离 C) broke through 突破 D) broke up 破碎
+29.The detective and his assistant have begun to _______ the mysterious murder. 侦探和他的助手已经开始______这起神秘的谋杀案。 A) come through 经历 B) look into 调查 C) make over 改造 D) see to 照管
+30.Sadly, the Giant Panda is one of the many species now in danger of_______. 遗憾的是，大熊猫是目前面临______危险的众多物种之一。 A) extinction 灭绝 B) migration 迁移 C) destruction 破坏 D) extraction 提取
+31.For many patients, institutional care is the most ______ and beneficial form of care. 对于许多患者来说，机构护理是最______和有益的护理形式。 A) pertinent 相关的 B) appropriate 适当的 C) acute 急性的 D) persistent 持续的
 32.Among all the changes resulting from the ______ entry of women into the work force, the
-transformation that has occurred in the women themselves is not the least important. A) massive 大规模的 B) quantitative 定量的 C) surplus 过剩的 D) formidable 可怕的
-33.Mr. Smith became very ______ when it was suggested that he had made a mistake. A) ingenious 精巧的 B) empirical 经验的 C) objective 客观的 D) indignant 愤怒的，愤慨的
+transformation that has occurred in the women themselves is not the least important. 在女性______进入劳动力市场所带来的所有变化中，女性自身发生的转变并非最不重要的。 A) massive 大规模的 B) quantitative 定量的 C) surplus 过剩的 D) formidable 可怕的
+33.Mr. Smith became very ______ when it was suggested that he had made a mistake. 当有人暗示史密斯先生犯了错误时，他变得非常______。 A) ingenious 精巧的 B) empirical 经验的 C) objective 客观的 D) indignant 愤怒的，愤慨的
 34.Rumours are everywhere, spreading fear, damaging reputations, and turning calm situations
-into______ ones. A) turbulent 动荡的 B) tragic 悲剧的 C) vulnerable 脆弱的 D) suspicious 可疑的
-35.The ______ cycle of life and death is a subject of interest to scientists and philosophers alike. A) incompatible 不兼容的 B) exceeding 超过的 C) instantaneous 瞬间的 D) eternal 永恒的
-36.She remains confident and ______ untroubled by our present problems. A) indefinitely 无限期地 B) infinitely 无限地 C) optimistically 乐观地 D) seemingly 看起来
-37.Fiber-optic cables can carry hundreds of telephone conversations ______. A. simultaneously 同时地 B) spontaneously 自发地 C) homogeneously 均匀地 D) contemporarily 同时代地
-38.The police were alerted that the escaped criminal might be in the ______. A) vain 徒劳 B) vicinity 附近 C) court 法院 D) jail 监狱
-39.Whether you live to eat or eat to live, food is a major ______ in every family's budget. A) nutrition 营养 B) expenditure 开支，支出 C) routine 日常 D) provision 供应
+into______ ones. 谣言无处不在，散布恐惧，损害名誉，把平静的局面变成______的局面。 A) turbulent 动荡的 B) tragic 悲剧的 C) vulnerable 脆弱的 D) suspicious 可疑的
+35.The ______ cycle of life and death is a subject of interest to scientists and philosophers alike. 生与死的______循环是科学家和哲学家都感兴趣的话题。 A) incompatible 不兼容的 B) exceeding 超过的 C) instantaneous 瞬间的 D) eternal 永恒的
+36.She remains confident and ______ untroubled by our present problems. 她保持自信，______不受我们目前问题的困扰。 A) indefinitely 无限期地 B) infinitely 无限地 C) optimistically 乐观地 D) seemingly 看起来
+37.Fiber-optic cables can carry hundreds of telephone conversations ______. 光纤电缆可以______传输数百个电话通话。 A. simultaneously 同时地 B) spontaneously 自发地 C) homogeneously 均匀地 D) contemporarily 同时代地
+38.The police were alerted that the escaped criminal might be in the ______. 警方接到警报，逃犯可能在______。 A) vain 徒劳 B) vicinity 附近 C) court 法院 D) jail 监狱
+39.Whether you live to eat or eat to live, food is a major ______ in every family's budget. 无论你是为吃而活还是为活而吃，食物都是每个家庭预算中的主要______。 A) nutrition 营养 B) expenditure 开支，支出 C) routine 日常 D) provision 供应
 40.Now a paper in Science argues that organic chemicals in the rock come mostly from ______
-on earth rather than bacteria on Mars. A) configuration 配置 B) constitution 构成 C) condemnation 谴责 D) contamination 污染
+on earth rather than bacteria on Mars. 现在《科学》杂志上的一篇论文认为，岩石中的有机化学物质主要来自地球上的______，而不是火星上的细菌。 A) configuration 配置 B) constitution 构成 C) condemnation 谴责 D) contamination 污染
 41.There is much I enjoy about the changing seasons, but my favorite time is the ______ from fall
-to winter. A) transmission 传输 B) transformation 转变 C) transition 过渡 D) transfer 转移
-42.I think we need to see an investment ______ before we make an expensive mistake. A) guide 指南 B) entrepreneur 企业家 C) consultant 顾问 D) assessor 评估员
-43.The ______ on this apartment expires in a year's time. A) treaty 条约 B) lease 租约 C) engagement 订婚 D) subsidy 补贴
-44.The elderly Russians find it hard to live on their state ______. A) pensions 养老金 B) earnings 收入 C) salaries 薪水 D) donations 捐款
-45.There is supposed to be a safety ______ which makes it impossible for trains to collide. A) appliance 电器 B) accessory 配件 C) machine 机器 D) mechanism 机制
-46.After four years in the same job his enthusiasm finally ______. A) deteriorated 恶化 B) dispersed 分散 C) dissipated 消散 D) drained 耗尽
-47.No one can function properly if they are _______ of adequate sleep. A) deprived 被剥夺 B) ripped 撕裂 C) stripped 剥去 D) contrived 策划的
-48.For years now, the people of that faraway country have been cruelly ______ by a dictator. A) depressed 沮丧的 B) immersed 沉浸的 C) oppressed 压迫 D) cursed 诅咒的
-49.Ever since the rise of industrialism, education has been ______ towards producing workers. A) harnessed 利用 B) hatched 孵化 C) motivated 激励 D) geared 调整，使适应
-50.The prospect of increased prices has already ______ worries. A) provoked 激起，引发 B) irritated 激怒 C) inspired 激励 D) hoisted 升起
-51.The suspect ______ that he had not been in the neighbourhood at the time of the crime. A) advocated 提倡 B) alleged 声称 C) addressed 演说 D) announced 宣布
+to winter. 关于季节变化，我喜欢的东西很多，但我最喜欢的是从秋天到冬天的______。 A) transmission 传输 B) transformation 转变 C) transition 过渡 D) transfer 转移
+42.I think we need to see an investment ______ before we make an expensive mistake. 我认为在我们犯下代价高昂的错误之前，需要咨询一位投资______。 A) guide 指南 B) entrepreneur 企业家 C) consultant 顾问 D) assessor 评估员
+43.The ______ on this apartment expires in a year's time. 这套公寓的______一年后到期。 A) treaty 条约 B) lease 租约 C) engagement 订婚 D) subsidy 补贴
+44.The elderly Russians find it hard to live on their state ______. 俄罗斯老年人发现靠国家______很难生活。 A) pensions 养老金 B) earnings 收入 C) salaries 薪水 D) donations 捐款
+45.There is supposed to be a safety ______ which makes it impossible for trains to collide. 应该有一个安全______，使火车不可能相撞。 A) appliance 电器 B) accessory 配件 C) machine 机器 D) mechanism 机制
+46.After four years in the same job his enthusiasm finally ______. 在同一份工作干了四年后，他的热情终于______了。 A) deteriorated 恶化 B) dispersed 分散 C) dissipated 消散 D) drained 耗尽
+47.No one can function properly if they are _______ of adequate sleep. 如果被______充足的睡眠，没有人能正常工作。 A) deprived 被剥夺 B) ripped 撕裂 C) stripped 剥去 D) contrived 策划的
+48.For years now, the people of that faraway country have been cruelly ______ by a dictator. 多年来，那个遥远国家的人民一直被独裁者残酷地______。 A) depressed 沮丧的 B) immersed 沉浸的 C) oppressed 压迫 D) cursed 诅咒的
+49.Ever since the rise of industrialism, education has been ______ towards producing workers. 自从工业主义兴起以来，教育一直______于培养工人。 A) harnessed 利用 B) hatched 孵化 C) motivated 激励 D) geared 调整，使适应
+50.The prospect of increased prices has already ______ worries. 价格上涨的前景已经______了担忧。 A) provoked 激起，引发 B) irritated 激怒 C) inspired 激励 D) hoisted 升起
+51.The suspect ______ that he had not been in the neighbourhood at the time of the crime. 嫌疑人______他在案发时不在附近。 A) advocated 提倡 B) alleged 声称 C) addressed 演说 D) announced 宣布
 52.Although the colonists ______ to some extent with the native Americans, the Indians' influence
-on American culture and language was not extensive. A) migrated 迁移 B) matched 匹配 C) mingled 混合，交往 D) melted 融化
-53.E-mail is a convenient, highly democratic informal medium for conveying messages that _______ well to human needs. A) adheres 坚持 B) reflects 反映 C) conforms 符合 D) satisfies 满足
-54.The wings of the bird still ______ after it had been shot down. A) slapped 拍打 B) scratched 抓挠 C) flapped 拍动（翅膀） D) fluctuated 波动
+on American culture and language was not extensive. 虽然殖民者在一定程度上与美洲原住民______，但印第安人对美国文化和语言的影响并不广泛。 A) migrated 迁移 B) matched 匹配 C) mingled 混合，交往 D) melted 融化
+53.E-mail is a convenient, highly democratic informal medium for conveying messages that _______ well to human needs. 电子邮件是一种方便、高度民主的非正式媒介，用于传递______人类需求的信息。 A) adheres 坚持 B) reflects 反映 C) conforms 符合 D) satisfies 满足
+54.The wings of the bird still ______ after it had been shot down. 鸟被击落后，翅膀仍在______。 A) slapped 拍打 B) scratched 抓挠 C) flapped 拍动（翅膀） D) fluctuated 波动
 55.The disagreement over trade restrictions could seriously ______ relations between the two
-countries. A) tumble 跌倒 B) jeopardize 危及 C) manipulate 操控 D) intimidate 恐吓
+countries. 关于贸易限制的分歧可能严重______两国关系。 A) tumble 跌倒 B) jeopardize 危及 C) manipulate 操控 D) intimidate 恐吓
 56.When you put up wallpaper, should you ______ the edges or put them next to each other?
-A) coincide 一致 B) extend 延伸 C) overlap 重叠 D) collide 碰撞
-57.Under the present system, state enterprises must ______ all profits to the government. A) turn down 拒绝 B) turn up 出现 C) turn out 结果是 D) turn in 上交
+贴墙纸时，你应该让边缘______还是让它们紧挨着？ A) coincide 一致 B) extend 延伸 C) overlap 重叠 D) collide 碰撞
+57.Under the present system, state enterprises must ______ all profits to the government. 在现行制度下，国有企业必须将所有利润______给政府。 A) turn down 拒绝 B) turn up 出现 C) turn out 结果是 D) turn in 上交
 58.Oil companies in the U.S. are already beginning to feel the pressure. Refinery workers and
-petroleum-equipment-manufacturing employees are being _______. A) laid out 摆放 B) laid off 解雇 C) laid down 放下 D) laid aside 搁置
+petroleum-equipment-manufacturing employees are being _______. 美国的石油公司已经开始感受到压力。炼油厂工人和石油设备制造员工正在被______。 A) laid out 摆放 B) laid off 解雇 C) laid down 放下 D) laid aside 搁置
 59.We'll ______ you for any damage done to your house while we are in it.
-A) compensate 补偿 B) remedy 补救 C) supplement 补充 D) retrieve 取回
-60.She cut her hair short and tried to ______ herself as a man. A) decorate 装饰 B) disguise 伪装 C) fabricate 捏造 D) fake 伪造
+我们会______你房子在我们使用期间造成的任何损坏。 A) compensate 补偿 B) remedy 补救 C) supplement 补充 D) retrieve 取回
+60.She cut her hair short and tried to ______ herself as a man. 她剪短了头发，试图把自己______成男人。 A) decorate 装饰 B) disguise 伪装 C) fabricate 捏造 D) fake 伪造
 61. Starting with the ________ that there is life on the planet Mars, the scientist went on to
-develop his argument. A) premise 前提 B) pretext 借口 C) foundation 基础 D) presentation 展示
-62. After several nuclear disasters, a ________ has raged over the safety of nuclear energy. A) quarrel 争吵 B) suspicion 怀疑 C) verdict 裁决 D) controversy 争论
-63. Their diplomatic principles completely laid bare their ________ for world conquest. A) admiration 钦佩 B) ambition 野心 C) administration 管理 D) orientation 方向
-64. The director gave me his ________ that he would double my pay if I did my job well. A) warrant 授权 B) obligation 义务 C) assurance 保证 D) certainty 确定性
-65. The Christmas tree was decorated with shining ______ such as colored lights and glass balls. A) ornaments 装饰品 B) luxuries 奢侈品 C) exhibits 展品 D) complements 补充 66. The two most important ________ in making a cake are flour and sugar . A) elements 元素 B) components 组成部分 C) ingredients 原料 D) constituents 成分
+develop his argument. 从火星上有生命这一______出发，这位科学家继续展开他的论证。 A) premise 前提 B) pretext 借口 C) foundation 基础 D) presentation 展示
+62. After several nuclear disasters, a ________ has raged over the safety of nuclear energy. 在几次核灾难之后，关于核能安全的______愈演愈烈。 A) quarrel 争吵 B) suspicion 怀疑 C) verdict 裁决 D) controversy 争论
+63. Their diplomatic principles completely laid bare their ________ for world conquest. 他们的外交原则完全暴露了他们征服世界的______。 A) admiration 钦佩 B) ambition 野心 C) administration 管理 D) orientation 方向
+64. The director gave me his ________ that he would double my pay if I did my job well. 主任向我______，如果我工作出色，他会把我的工资翻倍。 A) warrant 授权 B) obligation 义务 C) assurance 保证 D) certainty 确定性
+65. The Christmas tree was decorated with shining ______ such as colored lights and glass balls. 圣诞树上装饰着闪亮的______，如彩灯和玻璃球。 A) ornaments 装饰品 B) luxuries 奢侈品 C) exhibits 展品 D) complements 补充
+66. The two most important ________ in making a cake are flour and sugar. 做蛋糕最重要的两种______是面粉和糖。 A) elements 元素 B) components 组成部分 C) ingredients 原料 D) constituents 成分
 67. Cultural ________ indicates that human beings hand their languages down from
-one generation to another. A) translation 翻译 B) transition 过渡 C) transmission 传递 D) transaction 交易
-68. We must look beyond ________ and assumptions and try to discover what is missing. A) justifications 正当理由 B) illusions 幻觉 C) manifestations 表现 D) specifications 规格
-69. No one imagined that the apparently ________ businessman was really a criminal. A) respective 各自的 B) respectable 体面的 C) respectful 恭敬的 D) realistic 现实的
+one generation to another. 文化______表明人类将语言代代相传。 A) translation 翻译 B) transition 过渡 C) transmission 传递 D) transaction 交易
+68. We must look beyond ________ and assumptions and try to discover what is missing. 我们必须超越______和假设，努力发现缺失的东西。 A) justifications 正当理由 B) illusions 幻觉 C) manifestations 表现 D) specifications 规格
+69. No one imagined that the apparently ________ businessman was really a criminal. 没有人想到这位看起来______的商人实际上是个罪犯。 A) respective 各自的 B) respectable 体面的 C) respectful 恭敬的 D) realistic 现实的
 70. If nothing is done to protect the environment, millions of species that are alive today
-will have become ________ . A) deteriorated 恶化的 B) degenerated 退化的 C) suppressed 压制的 D) extinct 灭绝的
+will have become ________ . 如果不采取措施保护环境，今天存活的数百万物种将会______。 A) deteriorated 恶化的 B) degenerated 退化的 C) suppressed 压制的 D) extinct 灭绝的
 71. The ________ of the scientific attitude is that the human mind can succeed in understanding
-the universe. A) essence 本质 B) texture 质地 C) content 内容 D) threshold 门槛
+the universe. 科学态度的______是人类的思维能够成功地理解宇宙。 A) essence 本质 B) texture 质地 C) content 内容 D) threshold 门槛
 72. The old lady has developed a ________ cough which cannot be cured completely in a short
-time. A) perpetual 永久的 B) permanent 永久的 C) chronic 慢性的 D) sustained 持续的
-73. What the correspondent sent us is an ________ news report. We can depend on it
-A) evident 明显的 B) authentic 真实的 C) ultimate 最终的 D) immediate 立即的
+time. 这位老太太患上了______咳嗽，短时间内无法完全治愈。 A) perpetual 永久的 B) permanent 永久的 C) chronic 慢性的 D) sustained 持续的
+73. What the correspondent sent us is an ________ news report. We can depend on it.
+记者发给我们的是一份______的新闻报道，我们可以信赖它。 A) evident 明显的 B) authentic 真实的 C) ultimate 最终的 D) immediate 立即的
 74. Having had her as a professor and adviser, I can tell you that she is an _______ force who
-pushes her students to excel far beyond their own expectations. A) inspirational 鼓舞人心的 B) educational 教育的 C) excessive 过度的 D) instantaneous 瞬间的
+pushes her students to excel far beyond their own expectations. 作为她的学生和被指导者，我可以告诉你她是一股______的力量，推动学生远远超越自己的期望。 A) inspirational 鼓舞人心的 B) educational 教育的 C) excessive 过度的 D) instantaneous 瞬间的
 75. Some researchers feel that certain people have nervous systems particularly ______ to hot, dry
-winds. They are what we call weather sensitive people. A) subjective 主观的 B) subordinate 从属的 C) liable 有责任的 D) vulnerable 易受影响的
-76. Hurricanes are killer winds, and their _______ power lies in the physical damage they can do. A) cumulative 累积的 B) destructive 破坏性的 C) turbulent 动荡的 D) prevalent 流行的
-77. In some countries, students are expected to be quiet and ________ in the classroom. A) skeptical 怀疑的 B) faithful 忠诚的 C) obedient 顺从的 D) subsidiary 附属的
-78. In spite of the ______economic forecasts, manufacturing output has risen slightly. A) gloomy 悲观的 B) miserable 悲惨的 C) shadowy 阴暗的 D) obscure 模糊的
+winds. They are what we call weather sensitive people. 一些研究人员认为某些人的神经系统特别______于炎热干燥的风。他们就是我们所说的气象敏感人群。 A) subjective 主观的 B) subordinate 从属的 C) liable 有责任的 D) vulnerable 易受影响的
+76. Hurricanes are killer winds, and their _______ power lies in the physical damage they can do. 飓风是致命的风，它们的______力量在于它们能造成的物理破坏。 A) cumulative 累积的 B) destructive 破坏性的 C) turbulent 动荡的 D) prevalent 流行的
+77. In some countries, students are expected to be quiet and ________ in the classroom. 在一些国家，学生在课堂上应该保持安静和______。 A) skeptical 怀疑的 B) faithful 忠诚的 C) obedient 顺从的 D) subsidiary 附属的
+78. In spite of the ______economic forecasts, manufacturing output has risen slightly. 尽管经济预测______，制造业产出仍略有上升。 A) gloomy 悲观的 B) miserable 悲惨的 C) shadowy 阴暗的 D) obscure 模糊的
 79. Body paint or face paint is used mostly by men in preliterate societies in order to attract good
-health or to _______ disease. A) set aside 搁置 B) ward off 抵挡 C) shrug off 不予理会 D) give away 赠送
-80. The international situation has been growing _____difficult for the last few years. A) invariably 始终如一地 B) presumably 大概 C) increasingly 越来越 D) dominantly 占主导地位地
-81. The prisoner was ______ of his civil liberty for three years. A) discharged 释放 B) derived 获得 C) deprived 剥夺 D) dispatched 派遣
-82. Small farms and the lack of modern technology have ______ agricultural production. A) blundered 犯错 B) tangled 缠结 C) bewildered 困惑 D) hampered 妨碍
+health or to _______ disease. 在前文字社会中，身体彩绘或面部彩绘主要由男性使用，以吸引健康或______疾病。 A) set aside 搁置 B) ward off 抵挡 C) shrug off 不予理会 D) give away 赠送
+80. The international situation has been growing _____difficult for the last few years. 过去几年，国际形势变得______困难。 A) invariably 始终如一地 B) presumably 大概 C) increasingly 越来越 D) dominantly 占主导地位地
+81. The prisoner was ______ of his civil liberty for three years. 这名囚犯被______公民自由三年。 A) discharged 释放 B) derived 获得 C) deprived 剥夺 D) dispatched 派遣
+82. Small farms and the lack of modern technology have ______ agricultural production. 小农场和缺乏现代技术______了农业生产。 A) blundered 犯错 B) tangled 缠结 C) bewildered 困惑 D) hampered 妨碍
 83. The Japanese scientists have found that scents ______ efficiency and reduce stress among
-office workers. A) enhance 增强 B) amplify 放大 C) foster 培养 D) magnify 放大
-84. All the students have to ______to the rules and regulations of the school. A) confirm 确认 B) confront 面对 C) confine 限制 D) conform 遵守
-85. He ______ his head, wondering how to solve the problem
+office workers. 日本科学家发现气味能______办公室工作人员的效率并减轻压力。 A) enhance 增强 B) amplify 放大 C) foster 培养 D) magnify 放大
+84. All the students have to ______to the rules and regulations of the school. 所有学生都必须______学校的规章制度。 A) confirm 确认 B) confront 面对 C) confine 限制 D) conform 遵守
+85. He ______ his head, wondering how to solve the problem. 他______着头，想着如何解决这个问题。
 A) scrapped 废弃 B) screwed 拧 C) scraped 刮 D) scratched 挠
 86. As soon as the boy was able to earn his own living he ______ his parents' strict rules. A) defied 违抗 B) refuted 驳斥 C) excluded 排除 D) vetoed 否决
 87. The helicopter a light plane and both pilots were killed. A) coincided with 与...一致 B) stumbled on 偶然发现 C) tumbled to 意识到 D) collided with 与...碰撞
@@ -885,6 +886,68 @@ const App = () => {
           )}
         </div>
       </main>
+
+      {/* 做题模式悬浮窗 */}
+      {isPracticeMode && (
+        <div style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          backgroundColor: theme.cardBg,
+          border: `1px solid ${theme.border}`,
+          borderRadius: '12px',
+          padding: '16px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+          zIndex: 100,
+          minWidth: '180px'
+        }}>
+          <div style={{ fontSize: '0.875rem', color: theme.textSecondary, marginBottom: '8px' }}>做题进度</div>
+          <div style={{ fontSize: '1.5rem', fontWeight: '700', color: theme.primary, marginBottom: '4px' }}>
+            {Object.entries(answeredQuestions).filter(([qId, ans]) => {
+              const q = questions.find(q => q.id === parseInt(qId));
+              return q && q.correctAnswer === ans;
+            }).length} / {Object.keys(answeredQuestions).length}
+          </div>
+          <div style={{ fontSize: '0.75rem', color: theme.textSecondary, marginBottom: '12px' }}>
+            正确 / 已答 (共 {filteredQuestions.length} 题)
+          </div>
+          <div style={{
+            width: '100%',
+            height: '6px',
+            backgroundColor: theme.optionBorder,
+            borderRadius: '3px',
+            marginBottom: '12px',
+            overflow: 'hidden'
+          }}>
+            <div style={{
+              width: `${filteredQuestions.length > 0 ? (Object.keys(answeredQuestions).length / filteredQuestions.length) * 100 : 0}%`,
+              height: '100%',
+              backgroundColor: theme.primary,
+              borderRadius: '3px',
+              transition: 'width 0.3s'
+            }} />
+          </div>
+          <button
+            onClick={() => {
+              setIsPracticeMode(false);
+              setAnsweredQuestions({});
+            }}
+            style={{
+              width: '100%',
+              padding: '8px 12px',
+              borderRadius: '6px',
+              backgroundColor: theme.buttonBg,
+              color: theme.buttonText,
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '0.875rem',
+              fontWeight: '500'
+            }}
+          >
+            退出做题模式
+          </button>
+        </div>
+      )}
     </div>
   );
 };
