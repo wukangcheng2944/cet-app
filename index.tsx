@@ -531,9 +531,9 @@ const parseContent = (rawText: string): ParseResult => {
         
         // 1. Identify where options start. Usually look for "A)" or "A."
         // We will assume standard format A) B) C) D) or A. B. C. D.
-        const optionRegex = /(?:\s|^)(?:[A-D]\)|[A-D]\.)\s/g;
+        const optionRegex = /(?:\s|^)(?:[A-D]\)|[A-D]\.)\s?/g;
         const matches = [...fullText.matchAll(optionRegex)];
-        
+
         let qTextEndIndex = fullText.length;
         if (matches.length > 0) {
           qTextEndIndex = matches[0].index!;
@@ -543,9 +543,9 @@ const parseContent = (rawText: string): ParseResult => {
         const optionsPart = fullText.substring(qTextEndIndex);
 
         const options: { key: string; text: string }[] = [];
-        
-        // specific parsers for A) B) C) D)
-        const parts = optionsPart.split(/(?:\s|^)([A-D](?:\)|\.))\s/);
+
+        // specific parsers for A) B) C) D) - allow optional space after )
+        const parts = optionsPart.split(/(?:\s|^)([A-D](?:\)|\.))\s?/);
         // parts[0] is empty or garbage before A
         // parts[1] is "A)"
         // parts[2] is text for A
@@ -663,6 +663,8 @@ const App = () => {
   const [showInput, setShowInput] = useState(false); // Default hidden to show UI first
   const [searchTerm, setSearchTerm] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isPracticeMode, setIsPracticeMode] = useState(false);
+  const [answeredQuestions, setAnsweredQuestions] = useState<Record<number, string>>({});
 
   const theme = isDarkMode ? THEMES.dark : THEMES.light;
   
@@ -701,6 +703,19 @@ const App = () => {
               Vocabulary Matcher
             </h1>
             <div style={{ display: 'flex', gap: '8px' }}>
+              <button
+                onClick={() => {
+                  setIsPracticeMode(!isPracticeMode);
+                  if (!isPracticeMode) {
+                    setAnsweredQuestions({});
+                  }
+                }}
+                style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.875rem', padding: '6px 12px', borderRadius: '6px', backgroundColor: isPracticeMode ? theme.highlightBg : theme.buttonBg, color: isPracticeMode ? theme.highlightText : theme.buttonText, border: 'none', cursor: 'pointer', fontWeight: 500 }}
+                title={isPracticeMode ? "退出做题模式" : "进入做题模式"}
+              >
+                <FileText size={16} />
+                {isPracticeMode ? '退出做题' : '做题模式'}
+              </button>
               <button
                 onClick={() => setIsDarkMode(!isDarkMode)}
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '6px', borderRadius: '6px', backgroundColor: theme.buttonBg, color: theme.buttonText, border: 'none', cursor: 'pointer' }}
@@ -743,8 +758,17 @@ const App = () => {
         )}
 
         {/* Stats */}
-        <div style={{ marginBottom: '16px', fontSize: '0.875rem', color: theme.textSecondary, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span>Found {questions.length} questions. Showing {filteredQuestions.length}.</span>
+        <div style={{ marginBottom: '16px', fontSize: '0.875rem', color: theme.textSecondary, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+            <span>共 {questions.length} 题，显示 {filteredQuestions.length} 题</span>
+            {isPracticeMode && (
+              <span style={{ color: theme.primary }}>
+                已答 {Object.keys(answeredQuestions).length} 题，
+                正确 {Object.entries(answeredQuestions).filter(([qId, ans]) => {
+                  const q = questions.find(q => q.id === parseInt(qId));
+                  return q && q.correctAnswer === ans;
+                }).length} 题
+              </span>
+            )}
             {parseError && <span style={{ color: '#dc2626' }}>{parseError}</span>}
         </div>
 
@@ -772,23 +796,71 @@ const App = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', marginTop: '16px' }}>
                   {q.options.map((opt) => {
                     const isCorrect = q.correctAnswer === opt.key;
+                    const isAnswered = answeredQuestions[q.id] !== undefined;
+                    const userAnswer = answeredQuestions[q.id];
+                    const isUserSelected = userAnswer === opt.key;
+                    const isWrong = isUserSelected && !isCorrect;
+
+                    // 在做题模式下，只有答题后才显示翻译
+                    // 提取英文单词和翻译
+                    const textParts = opt.text.match(/^([a-zA-Z\s\-']+)(.*)$/);
+                    const englishWord = textParts ? textParts[1].trim() : opt.text;
+                    const translation = textParts ? textParts[2].trim() : '';
+
+                    // 决定是否显示翻译
+                    const showTranslation = !isPracticeMode || isAnswered;
+
+                    // 决定样式
+                    let bgColor = theme.optionBg;
+                    let borderColor = theme.optionBorder;
+                    let textColor = theme.optionText;
+
+                    if (!isPracticeMode) {
+                      // 非做题模式：显示正确答案
+                      if (isCorrect) {
+                        bgColor = theme.correctBg;
+                        borderColor = theme.correctBorder;
+                        textColor = theme.correctText;
+                      }
+                    } else if (isAnswered) {
+                      // 做题模式已答题：显示对错
+                      if (isCorrect) {
+                        bgColor = theme.correctBg;
+                        borderColor = theme.correctBorder;
+                        textColor = theme.correctText;
+                      } else if (isWrong) {
+                        bgColor = 'rgba(239, 68, 68, 0.1)';
+                        borderColor = '#ef4444';
+                        textColor = '#ef4444';
+                      }
+                    }
+
                     return (
-                      <div 
-                        key={opt.key} 
-                        style={{ 
-                          display: 'flex', 
-                          alignItems: 'center', 
-                          padding: '10px 12px', 
-                          borderRadius: '8px', 
-                          backgroundColor: isCorrect ? theme.correctBg : theme.optionBg,
-                          border: isCorrect ? `1px solid ${theme.correctBorder}` : `1px solid ${theme.optionBorder}`,
-                          color: isCorrect ? theme.correctText : theme.optionText,
-                          transition: 'all 0.2s'
+                      <div
+                        key={opt.key}
+                        onClick={() => {
+                          if (isPracticeMode && !isAnswered) {
+                            setAnsweredQuestions(prev => ({ ...prev, [q.id]: opt.key }));
+                          }
+                        }}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          padding: '10px 12px',
+                          borderRadius: '8px',
+                          backgroundColor: bgColor,
+                          border: `1px solid ${borderColor}`,
+                          color: textColor,
+                          transition: 'all 0.2s',
+                          cursor: isPracticeMode && !isAnswered ? 'pointer' : 'default'
                         }}
                       >
-                        <span style={{ fontWeight: '600', marginRight: '8px', color: isCorrect ? theme.correctText : theme.optionKey, minWidth: '20px' }}>{opt.key})</span>
-                        <span style={{ fontWeight: isCorrect ? '600' : '400' }}>{opt.text}</span>
-                        {isCorrect && <CheckCircle size={16} style={{ marginLeft: 'auto', color: theme.correctIcon }} />}
+                        <span style={{ fontWeight: '600', marginRight: '8px', color: isCorrect && (!isPracticeMode || isAnswered) ? theme.correctText : isWrong ? '#ef4444' : theme.optionKey, minWidth: '20px' }}>{opt.key})</span>
+                        <span style={{ fontWeight: (isCorrect && (!isPracticeMode || isAnswered)) ? '600' : '400' }}>
+                          {englishWord}{showTranslation && translation ? ` ${translation}` : ''}
+                        </span>
+                        {isCorrect && (!isPracticeMode || isAnswered) && <CheckCircle size={16} style={{ marginLeft: 'auto', color: theme.correctIcon }} />}
+                        {isWrong && <XCircle size={16} style={{ marginLeft: 'auto', color: '#ef4444' }} />}
                       </div>
                     );
                   })}
