@@ -887,67 +887,95 @@ const App = () => {
         </div>
       </main>
 
-      {/* 做题模式悬浮窗 */}
-      {isPracticeMode && (
+      {/* 悬浮按钮组 */}
+      <div style={{
+        position: 'fixed',
+        bottom: '20px',
+        right: '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '10px',
+        zIndex: 100
+      }}>
+        {/* 做题模式悬浮窗 - 始终显示 */}
         <div style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          backgroundColor: theme.cardBg,
-          border: `1px solid ${theme.border}`,
-          borderRadius: '12px',
-          padding: '16px',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-          zIndex: 100,
-          minWidth: '180px'
-        }}>
-          <div style={{ fontSize: '0.875rem', color: theme.textSecondary, marginBottom: '8px' }}>做题进度</div>
-          <div style={{ fontSize: '1.5rem', fontWeight: '700', color: theme.primary, marginBottom: '4px' }}>
-            {Object.entries(answeredQuestions).filter(([qId, ans]) => {
-              const q = questions.find(q => q.id === parseInt(qId));
-              return q && q.correctAnswer === ans;
-            }).length} / {Object.keys(answeredQuestions).length}
-          </div>
-          <div style={{ fontSize: '0.75rem', color: theme.textSecondary, marginBottom: '12px' }}>
-            正确 / 已答 (共 {filteredQuestions.length} 题)
-          </div>
-          <div style={{
-            width: '100%',
-            height: '6px',
-            backgroundColor: theme.optionBorder,
-            borderRadius: '3px',
-            marginBottom: '12px',
-            overflow: 'hidden'
-          }}>
-            <div style={{
-              width: `${filteredQuestions.length > 0 ? (Object.keys(answeredQuestions).length / filteredQuestions.length) * 100 : 0}%`,
-              height: '100%',
-              backgroundColor: theme.primary,
-              borderRadius: '3px',
-              transition: 'width 0.3s'
-            }} />
-          </div>
-          <button
-            onClick={() => {
-              setIsPracticeMode(false);
-              setAnsweredQuestions({});
-            }}
-            style={{
-              width: '100%',
-              padding: '8px 12px',
-              borderRadius: '6px',
-              backgroundColor: theme.buttonBg,
-              color: theme.buttonText,
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '0.875rem',
-              fontWeight: '500'
-            }}
-          >
-            退出做题模式
-          </button>
+          backgroundColor: isPracticeMode ? theme.highlightBg : theme.cardBg,
+          border: `1px solid ${isPracticeMode ? theme.primary : theme.border}`,
+          borderRadius: '10px',
+          padding: '10px 14px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px',
+          cursor: 'pointer',
+          transition: 'all 0.2s'
+        }}
+        onClick={() => {
+          if (!isPracticeMode) {
+            setIsPracticeMode(true);
+            setAnsweredQuestions({});
+          }
+        }}
+        >
+          <FileText size={18} color={isPracticeMode ? theme.highlightText : theme.textSecondary} />
+          {isPracticeMode ? (
+            <>
+              <div style={{ fontSize: '0.875rem', color: theme.highlightText, fontWeight: '600' }}>
+                {Object.entries(answeredQuestions).filter(([qId, ans]) => {
+                  const q = questions.find(q => q.id === parseInt(qId));
+                  return q && q.correctAnswer === ans;
+                }).length}/{Object.keys(answeredQuestions).length}
+              </div>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsPracticeMode(false);
+                  setAnsweredQuestions({});
+                }}
+                style={{
+                  padding: '4px 10px',
+                  borderRadius: '6px',
+                  backgroundColor: theme.buttonBg,
+                  color: theme.buttonText,
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '0.75rem',
+                  fontWeight: '500'
+                }}
+              >
+                退出
+              </button>
+            </>
+          ) : (
+            <span style={{ fontSize: '0.875rem', color: theme.textSecondary, fontWeight: '500' }}>
+              做题模式
+            </span>
+          )}
         </div>
-      )}
+
+        {/* 回到顶部按钮 */}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          style={{
+            width: '40px',
+            height: '40px',
+            borderRadius: '50%',
+            backgroundColor: theme.cardBg,
+            border: `1px solid ${theme.border}`,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            alignSelf: 'flex-end'
+          }}
+          title="回到顶部"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={theme.textSecondary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      </div>
     </div>
   );
 };
